@@ -16,6 +16,11 @@ class Api:
 		df = df.drop(['Volume','Open' ,'Close', 'Low','High','Dividends', 'Stock Splits'], axis=1)
 		return df
 
+	def close(self, start):
+		df = self.ticker.history(start=start)
+		df = df.drop(['Volume','Open', 'Low','High','Dividends', 'Stock Splits'], axis=1)
+		return df
+
 def main():
 	apple = Api("AAPL")
 	print(apple.open("2018-09-29"))
